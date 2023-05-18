@@ -3,7 +3,7 @@
 
 /**
  * print_to_98 - prints all natural numbers from n to 98.
- * @n - number to start counting from
+ * @n: number to start counting from
  *
  * Return: nothing
  */
