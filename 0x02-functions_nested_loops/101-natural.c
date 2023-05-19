@@ -2,19 +2,18 @@
 #include "main.h"
 
 /**
- * multisum35 - computes and prints the sum of all the multis of 3 or 5 < 1024
- * @n: range for count
+ * main -  prints the sum of all the multiples of 3 or 5 below 1024
  *
- * Return: nothing
+ * Return: always 0
  */
-void multisum35(void)
+int main(void)
 {
 	/* declare and initialize some variables */
-	int sum = 0, i;
-	int n = 10;
+	long int sum = 0;
+	int i;
 
 	/* use for loop to iterate through n */
-	for (i = 0; i < n; i++)
+	for (i = 0; i < 1024; i++)
 	{
 		/* use if to check for multi of 3 || 5 */
 		if (i % 3 == 0 || i % 5 == 0)
@@ -23,5 +22,6 @@ void multisum35(void)
 		}
 	}
 	/* print sum */
-	printf("sum is: %d", sum);
+	printf("sum is: %ld\n", sum);
+	return (0);
 }
