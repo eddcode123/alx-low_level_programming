@@ -22,6 +22,6 @@ int main(void)
 		}
 	}
 	/* print sum */
-	printf("sum is: %ld\n", sum);
+	printf("%ld\n", sum);
 	return (0);
 }
