@@ -24,7 +24,7 @@ int main(void)
 		/* check for end of list and add new line */
 		if (count == 50)
 		{
-			printf("%lu \n", result);
+			printf("%lu\n", result);
 		}
 		else /* if we are not at 50 seperate with comma and space */
 		{
