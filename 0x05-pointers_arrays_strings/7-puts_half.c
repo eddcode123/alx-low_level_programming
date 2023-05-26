@@ -16,17 +16,14 @@ void puts_half(char *str)
 	/* find len of a string */
 	len = strlen(str);
 	/* find middle */
-	middle = len / 2;
+	if (len % 2 != 0)
+		middle = (len / 2) + 1;
+	else
+		middle = len / 2;
 	/* use loop to print */
 	for (i = middle; i <= len - 1; i++)
 	{
-		if (middle % 2 == 1)
-		{
-			for (i = middle; i < len; i++)
-				printf("%c", str[i]);
-		}
-		else
-			printf("%c", str[i]);
+		printf("%c", str[i]);
 	}
 	printf("\n");
 }
