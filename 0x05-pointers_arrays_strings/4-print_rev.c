@@ -16,7 +16,7 @@ void print_rev(char *s)
 	/* find the length of the string */
 	len = strlen(s);
 	/* use a for loop to print in reverse */
-	for (i = len; i >= 0; i--)
+	for (i = len - 1; i >= 0; i--)
 	{
 		printf("%c", s[i]);
 	}
