@@ -16,7 +16,7 @@ void puts2(char *str)
 	/* find the len of string */
 	len = strlen(str);
 	/* print string */
-	for (i = 0; i < len; i++)
+	for (i = 0; i < len - 1; i++)
 	{
 		if (i > 0)
 		{
