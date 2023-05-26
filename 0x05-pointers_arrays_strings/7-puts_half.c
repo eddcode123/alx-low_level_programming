@@ -18,7 +18,7 @@ void puts_half(char *str)
 	/* find middle */
 	middle = len / 2;
 	/* use loop to print */
-	for (i = middle; i <= len - 1; i++)
+	for (i = middle; i <= len; i++)
 	{
 		if (middle % 2 != 0)
 		{
