@@ -12,24 +12,22 @@
 
 char *_strcat(char *dest, char *src)
 {
-	int i, j, lastindex, lendest;
+	char *ptr = dest;
 
-	/* find lenght of string in dest */
-	lendest = strlen(dest);
-	/* find the last index of dest */
-	lastindex = lendest - 1 - 1;
-	/* append src to dest */
-	for (i = lastindex; i >= lendest; i++)
+	/* Move the pointer to the end of the destination string */
+	while (*ptr != '\0')
 	{
-		if (i == lastindex && i != '\0')
-			dest[i + 1] = ' ';
-		else
-		{
-			for(j = 0; src[j] != '\0'; j++)
-			{
-				dest[i + 1] = src[j];
-			}
-		}
+		ptr++;
 	}
+	/* copy src to end of dest string */
+	while (*src != '\0')
+	{
+		*ptr = *src;
+		ptr++;
+		src++;
+	}
+	/* add the null terminator at the end of the concat string */
+	*ptr = '\0';
+
 	return (dest);
 }
