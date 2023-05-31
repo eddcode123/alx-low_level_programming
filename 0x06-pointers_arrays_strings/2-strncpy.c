@@ -3,8 +3,8 @@
 
 /**
  * _strncpy - copy n characters from scr
- * @dest - pointer to destination string
- * @src - pointer to source string
+ * @dest: pointer to destination string
+ * @src: pointer to source string
  * @n: max number to be copied from src string
  *
  * Return: a pointer to the resulting string dest
