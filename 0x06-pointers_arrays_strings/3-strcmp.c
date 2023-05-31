@@ -11,17 +11,11 @@
 
 int _strcmp(char *s1, char *s2)
 {
-	int result, len1 = 0, len2 = 0;
+	while (*s1 && (*s1 == *s2))
+	{
+		s1++;
+		s2++;
+	}
 
-	/* find length of each string */
-	len1 = strlen(s1);
-	len2 = strlen(s2);
-	/* compare the two strings */
-	if (len1 < len2)
-		result = -15;
-	else if (len1 > len2)
-		result = 15;
-	else
-		result = 0;
-	return (result);
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }
