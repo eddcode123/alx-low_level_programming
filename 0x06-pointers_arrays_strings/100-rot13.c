@@ -10,21 +10,24 @@
 char *rot13(char *s)
 {
 	char *p = s;
-	int i = 0, j = 0;
 
-	/* loop through string */
-	if ((*p >= 97 && *p <= 122) || (*p >= 65 && *p <= 90))
+	/* use a while loop to ilterate through each character */
+	while (*p != '\0')
 	{
-		while (p[i] != '\0' && ((p[i] + 13) <= 'z' || (p[i] + 13) <= 'Z'))
+		/* check if char is between a-m 0r A-M */
+		if ((*p >= 'a' && *p <= 'm') || (*p >= 'A' && *p <= 'M'))
 		{
-			p[i] += 13;
-			i++;
+			/* add 13 to rotate */
+			*p += 13;
 		}
-		while ((p[j] + 13) > 'z' || (p[j] + 13) > 'Z')
+		 /* check if char is between n-z 0r N-Z */
+		else if ((*p >= 'n' && *p <= 'z') || (*p >= 'N' && *p <= 'Z'))
 		{
-			p[j] = (p[j] + 13) - 32;
-			j++;
+			/* minus 13 to rotate */
+			*p -= 13;
 		}
+		p++;
 	}
+
 	return (s);
 }
