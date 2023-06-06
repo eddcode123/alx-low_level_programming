@@ -13,22 +13,18 @@ char *rot13(char *s)
 	int i = 0, j = 0;
 
 	/* loop through string */
-	while (p[i] != '\0')
+	if ((*p >= 97 && *p <= 122) || (*p >= 65 && *p <= 90))
 	{
-		if ((p[i] + 13) <= 'z' || (p[i] + 13) <= 'Z')
+		while (p[i] != '\0' && ((p[i] + 13) <= 'z' || (p[i] + 13) <= 'Z'))
 		{
 			p[i] += 13;
+			i++;
 		}
-		else
+		while ((p[j] + 13) > 'z' || (p[j] + 13) > 'Z')
 		{
-			while ((p[j] + 13) > 'z' || (p[j] + 13) > 'Z')
-			{
-				p[j] = (p[j] + 13) - 32;
-				j++;
-			}
+			p[j] = (p[j] + 13) - 32;
+			j++;
 		}
-		i++;
-
 	}
 	return (s);
 }
