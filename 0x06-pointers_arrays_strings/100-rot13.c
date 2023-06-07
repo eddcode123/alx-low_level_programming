@@ -1,5 +1,4 @@
 #include "main.h"
-#include <ctype.h>
 
 /**
  * rot13 - encodes a string using rot13.
@@ -24,7 +23,7 @@ char *rot13(char *s)
 		/* use loop to check each char in string */
 		for (i = 0; i < 52; i++)
 		{
-			/* use if to check if char match */
+			/* use if to check if char in s match char in alpha */
 			if (*(p + count) == alpha[i])
 			{
 				*(p + count) = rot13[i];
