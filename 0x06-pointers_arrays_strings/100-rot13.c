@@ -9,7 +9,7 @@
 
 char *rot13(char *s)
 {
-	int count = 0, i;
+	int i;
 	char *p = s;
 
 	/* store alphabet in sting */
@@ -17,20 +17,21 @@ char *rot13(char *s)
 	/* store alphabet rotated 13 positions in rot13 string */
 	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	/* loop through each character */
-	while (*(p + count) != '\0')
+	/* loop through each character of s */
+	while (*p != '\0')
 	{
-		/* use loop to check each char in string */
+		/* loop trough each char of alpha */
 		for (i = 0; i < 52; i++)
 		{
 			/* use if to check if char in s match char in alpha */
-			if (*(p + count) == alpha[i])
+			if (*p == alpha[i])
 			{
-				*(p + count) = rot13[i];
+				/* assign rot13 char to char in s */
+				*p = rot13[i];
 				break;
 			}
 		}
-		count++;
+		p++;
 	}
 	return (s);
 }
