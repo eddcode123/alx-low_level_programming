@@ -1,4 +1,5 @@
 #include "main.h"
+#include <ctype.h>
 
 /**
  * rot13 - encodes a string using rot13.
@@ -9,25 +10,28 @@
 
 char *rot13(char *s)
 {
+	int count = 0, i;
 	char *p = s;
 
-	/* use a while loop to ilterate through each character */
-	while (*p != '\0')
-	{
-		/* check if char is between a-m 0r A-M */
-		if ((*p >= 'a' && *p <= 'm') || (*p >= 'A' && *p <= 'M'))
-		{
-			/* add 13 to rotate */
-			*p += 13;
-		}
-		 /* check if char is between n-z 0r N-Z */
-		else if ((*p >= 'n' && *p <= 'z') || (*p >= 'N' && *p <= 'Z'))
-		{
-			/* minus 13 to rotate */
-			*p -= 13;
-		}
-		p++;
-	}
+	/* store alphabet in sting */
+	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	/* store alphabet rotated 13 positions in rot13 string */
+	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
+	/* loop through each character */
+	while (*(p + count) != '\0')
+	{
+		/* use loop to check each char in string */
+		for (i = 0; i < 52; i++)
+		{
+			/* use if to check if char match */
+			if (*(p + count) == alpha[i])
+			{
+				*(p + count) = rot13[i];
+				break;
+			}
+		}
+		count++;
+	}
 	return (s);
 }
