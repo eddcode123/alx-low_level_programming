@@ -2,31 +2,34 @@
 
 /**
  * print_number - prints an integer.
- * @n: integer to print
- *
- * Return: nothing
+ * @n: input integer.
+ * Return: no return.
  */
-
 void print_number(int n)
 {
-	/* print '-' for negative numbers */
+	unsigned int m, d, count;
+
 	if (n < 0)
 	{
-		_putchar('-');
-		n = n * - 1;
+		_putchar(45);
+		m = n * -1;
 	}
-	/* print n */
-	if (n == 0)
+	else
 	{
-		_putchar(n);
+		m = n;
 	}
-	/* First remove the last digit of number and print
-    the remaining digits using recursion, then print
-    the last digit
- */
-	if (n / 10)
+
+	d = m;
+	count = 1;
+
+	while (d > 9)
 	{
-		print_number(n / 10);
+		d /= 10;
+		count *= 10;
 	}
-	_putchar(n % 10 + '0');
+
+	for (; count >= 1; count /= 10)
+	{
+		_putchar(((m / count) % 10) + 48);
+	}
 }
