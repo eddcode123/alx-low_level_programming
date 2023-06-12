@@ -12,9 +12,10 @@ int _strlen(char *s)
 	int count = 0, i;
 
 	/* use a while loop to find length of string */
-	for (i = 0; s[i] != '\0'; i++)
+	while (*s != '\0')
 	{
-		count++;
+		s++;
+		count += 1;
 	}
 	return (count);
 }
