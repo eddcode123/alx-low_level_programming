@@ -15,9 +15,10 @@ char *_strcpy(char *dest, char *src)
 	/* use a loop to copy each char to dest */
 	while (*ptr != '\0')
 	{
-		*ptr++ = *src++; 
+		*ptr++ = *src++;
 	}
 	/* add null character to dest */
 	*ptr = '\0';
+
 	return (dest);
 }
