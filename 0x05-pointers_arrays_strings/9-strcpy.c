@@ -13,7 +13,7 @@ char *_strcpy(char *dest, char *src)
 	char *ptr = dest;
 
 	/* use a loop to copy each char to dest */
-	while (*ptr != '\0')
+	while (*src != '\0')
 	{
 		*ptr++ = *src++;
 	}
