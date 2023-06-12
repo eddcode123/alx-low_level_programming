@@ -9,14 +9,15 @@
   */
 char *_strcpy(char *dest, char *src)
 {
-	int i;
+	/* declare a poniter to char */
+	char *ptr = dest;
 
-	for (i = 0; src[i] != '\0'; i++)
+	/* use a loop to copy each char to dest */
+	while (*ptr != '\0')
 	{
-		dest[i] = src[i];
+		*ptr++ = *src++; 
 	}
-
-	dest[i++] = '\0';
-
+	/* add null character to dest */
+	*ptr = '\0';
 	return (dest);
 }
