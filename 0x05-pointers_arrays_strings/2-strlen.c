@@ -9,7 +9,7 @@
 
 int _strlen(char *s)
 {
-	int count = 0, i;
+	int count = 0;
 
 	/* use a while loop to find length of string */
 	while (*s != '\0')
