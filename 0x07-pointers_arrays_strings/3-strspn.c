@@ -13,6 +13,7 @@
 unsigned int _strspn(char *s, char *accept)
 {
 	unsigned int count = 0, i, j, len1, len2, check;
+
 	len1 = strlen(s);
 	len2 = strlen(accept);
 	/* use for loop to compare each char of accept through s */
