@@ -2,38 +2,33 @@
 #include <stdlib.h>
 
 /**
- * main -  adds positive numbers
- * @argc: number of arguments passed
- * @argv: array of strings
- *
- * Return: 0 for success
- */
-
-int main(int argc, char **argv)
+* main -> this is a function to add positive numbers
+* @argc: argc parameter
+* @argv: an array of a command listed
+* Return: 0 for success
+*/
+int main(int argc, char *argv[])
 {
-	int i, temp, sum = 0;
+	int result = 0, num, i, j, k;
 
-	/* check if more than one arguments are passed */
-	if (argc != 0)
+	for (i = 1; i < argc; i++)
 	{
-		for (i = 1; i < argc; i++)
+		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			temp = atoi(argv[i]);
-			if (temp > 0)
+			if (argv[i][j] > '9' || argv[i][j] < '0')
 			{
-				sum += temp;
-			}
-			else
-			{
-				printf("Error\n");
+				printf("%s\n", "Error");
 				return (1);
 			}
+
 		}
 	}
-	else
+
+	for (k = 1; k < argc; k++)
 	{
-		printf("%d\n", 0);
+		num = atoi(argv[k]);
+		result += num;
 	}
-	printf("%d\n", sum);
+	printf("%d\n", result);
 	return (0);
 }
