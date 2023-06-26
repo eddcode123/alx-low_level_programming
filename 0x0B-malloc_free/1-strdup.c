@@ -3,7 +3,7 @@
 #include "main.h"
 
 /**
- * _strdup - returns a pointer to a new string which is a duplicate of the string str.
+ * _strdup - returns a pointer to a new location string copy.
  * @str: pointer to source string
  *
  * Return: pointer to duplicate malloc and null if malloc return null
