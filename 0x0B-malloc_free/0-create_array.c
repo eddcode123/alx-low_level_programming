@@ -13,6 +13,7 @@
 char *create_array(unsigned int size, char c)
 {
 	char *ptr;
+	unsigned int i;
 
 	/* assign bytes to array using malloc */
 	ptr = (char *) malloc(size * sizeof(char));
@@ -23,8 +24,11 @@ char *create_array(unsigned int size, char c)
 	}
 	else
 	{
-		/*initialize the base address with c*/
-		ptr[0] = c;
+		/*initialize array with c*/
+		for (i = 0; i < size; i++)
+		{
+			ptr[i] = c;
+		}
 		return (ptr);
 	}
 	free(ptr);
