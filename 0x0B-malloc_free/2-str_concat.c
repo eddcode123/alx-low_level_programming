@@ -12,14 +12,14 @@
 
 char *str_concat(char *s1, char *s2)
 {
-	char *concat, *ptr, *ptr1;
-	unsigned int i, j, len = 0;
+	char *concat;
+	unsigned int i, j, k, len = 0, temp;
 
-	ptr = s1;
-	ptr1 = s2;
 	/* check if the string is empty */
-	if (s1 == NULL && s2 == NULL)
-		return (NULL);
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 	/* find length of s1 */
 	for (i = 0; s1[i] != '\0'; i++)
 		;
@@ -32,22 +32,20 @@ char *str_concat(char *s1, char *s2)
 	concat = (char *) malloc(sizeof(char) * (len + 1));
 	/* check if malloc return NULL */
 	if (concat == NULL)
+	{
+		free(concat);
 		return (NULL);
-	while (*ptr != '\0')
-	{
-		*concat = *ptr;
-		ptr++;
-		concat++;
 	}
-	while (*ptr1 != '\0')
+	/* concatenate s1 and s2 to concat */
+	for (k = 0; k < i; k++)
 	{
-		*concat = *ptr1;
-		concat++;
-		ptr1++;
+		concat[k] = s1[k];
 	}
-	/* copy ptr string to concat */
-	*concat = '\0';
-	
+	temp = j;
+	for (j = 0; j < temp; j++, k++)
+	{
+		concat[k] = s2[j];
+	}
 	return (concat);
 
 }
