@@ -20,17 +20,16 @@ int *array_range(int min, int max)
 	/* find size of array */
 	size = max - min;
 	/* allocate memory for array with malloc */
-	a = malloc(size * sizeof(a));
+	a = malloc(size * sizeof(a) + 1);
 
 	/* chech if malloc failed */
 	if (a == NULL)
 		return (NULL);
 
 	/* create an array of size max */
-	for (i = 0; i < size; i++, min++)
+	for (i = 0; min <= max; i++, min++)
 	{
-		if (min <= max)
-			a[i] = min;
+		a[i] = min;
 	}
 
 	return (a);
