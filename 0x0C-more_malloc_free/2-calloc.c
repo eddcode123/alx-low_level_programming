@@ -17,7 +17,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	size_t i;
 	/* check if nmemb or size is zero */
 	if (nmemb == 0 || size == 0)
-		return NULL;
+		return (NULL);
 	/* allocate memory using malloc */
 	for (i = 0; i < nmemb; i++)
 	{
@@ -25,6 +25,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	}
 	/* check if malloc failed */
 	if (array == NULL)
-		return NULL;
+		return (NULL);
 	return (array);
 }
