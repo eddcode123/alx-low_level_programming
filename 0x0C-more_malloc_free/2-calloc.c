@@ -11,20 +11,22 @@
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	/* create a void pointer to array */
-	void *array;
+	/* create a pointer to array */
+	char *array;
 	/* variable i for iteration */
 	size_t i;
 	/* check if nmemb or size is zero */
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 	/* allocate memory using malloc */
-	for (i = 1; i <= nmemb; i++)
-	{
-		array = malloc(i * sizeof(size));
-	}
+	array = malloc(nmemb * sizeof(size));
 	/* check if malloc failed */
 	if (array == NULL)
 		return (NULL);
+	/* initialize all elements of array with zero */
+	for (i = 0; i < (nmemb * size); i++)
+	{
+		array[i] = 0;
+	}
 	return (array);
 }
