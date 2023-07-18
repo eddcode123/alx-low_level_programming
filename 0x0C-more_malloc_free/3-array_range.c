@@ -29,7 +29,7 @@ int *array_range(int min, int max)
 	/* create an array of size max */
 	for (i = 0; i < size; i++, min++)
 	{
-		if (min < max)
+		if (min <= max)
 			a[i] = min;
 	}
 
