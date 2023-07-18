@@ -20,7 +20,7 @@ int *array_range(int min, int max)
 	/* find size of array */
 	size = max - min;
 	/* allocate memory for array with malloc */
-	a = malloc(size * sizeof(a) + 1);
+	a = malloc((size + 1) * sizeof(a));
 
 	/* chech if malloc failed */
 	if (a == NULL)
