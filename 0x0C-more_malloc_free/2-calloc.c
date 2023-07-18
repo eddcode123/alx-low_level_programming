@@ -20,9 +20,12 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 	/* allocate memory using malloc */
 	array = malloc(nmemb * sizeof(size));
+
+
 	/* check if malloc failed */
 	if (array == NULL)
 		return (NULL);
+
 	/* initialize all elements of array with zero */
 	for (i = 0; i < (nmemb * size); i++)
 	{
