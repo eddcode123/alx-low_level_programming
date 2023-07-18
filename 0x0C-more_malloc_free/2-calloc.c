@@ -19,7 +19,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 	/* allocate memory using malloc */
-	for (i = 0; i < nmemb; i++)
+	for (i = 1; i <= nmemb; i++)
 	{
 		array = malloc(i * sizeof(size));
 	}
