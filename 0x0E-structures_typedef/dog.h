@@ -1,16 +1,28 @@
+#ifndef _DOG_H_
+#define _DOG_H_
+
 /**
- * struct dog - data staructer containing dog info
- * @name: pointer to name of dog
+ * doggy - Typedef for struct dog
+ */
+typedef struct dog doggy;
+
+/**
+ * struct dog - struct containing some dog info
+ * @name: name of dog
  * @age: age of dog
  * @owner: name of dog owner
  *
- * description: basically this data staructer will be used to 
+ * description: basically this struct will be used to 
  * to collect data on dog name age and dog owner name
  *
  */
-struct gog
+struct dog
 {
 	char *name;
 	float age;
 	char *owner;
 };
+
+
+
+#endif
