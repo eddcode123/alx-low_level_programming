@@ -12,7 +12,7 @@ typedef struct dog doggy;
  * @age: age of dog
  * @owner: name of dog owner
  *
- * description: basically this struct will be used to 
+ * description: basically this struct will be used to
  * to collect data on dog name age and dog owner name
  *
  */
