@@ -18,7 +18,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 	/* declare variables to use */
 	int lname, lowner, i;
 
-
 	/* use malloc to allocate memory to new dog */
 	newdog = malloc(sizeof(*newdog));
 
@@ -48,12 +47,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 	for (i = 0; i < lname; i++)
 		newdog->name[i] = name[i];
 	newdog->name[i] = '\0';
-
 	newdog->age = age;
-
 	for (i = 0; i < lowner; i++)
 		newdog->owner[i] = owner[i];
 	newdog->owner[i] = '\0';
-
 	return (newdog);
 }
