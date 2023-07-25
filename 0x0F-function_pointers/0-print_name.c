@@ -12,7 +12,5 @@ void print_name(char *name, void (*f)(char *))
 {
 	/* call function passed and paremeters using pointer */
 	if (name && f)
-	{
 		f(name);
-	}
 }
