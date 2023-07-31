@@ -14,6 +14,7 @@ unsigned int binary_to_uint(const char *b)
 {
 	unsigned int decval = 0, result, base = 1, lastdigt;
 	int i;
+	char digit;
 
 	/* check for null string */
 	if (!b)
@@ -21,7 +22,9 @@ unsigned int binary_to_uint(const char *b)
 	/* check if the char in string is a digit */
 	for (i = 0; b[i] != '\0'; i++)
 	{
-		if (isalpha(b[i]))
+		digit = b[i];
+
+		if (!isdigit(digit))
 			return (0);
 	}
 	result = atoi(b);
