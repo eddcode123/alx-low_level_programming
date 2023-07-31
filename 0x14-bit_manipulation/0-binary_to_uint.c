@@ -26,7 +26,7 @@ unsigned int binary_to_uint(const char *b)
 	}
 	result = atoi(b);
 
-	while (result)
+	while (result != 0)
 	{
 		/* find last digit */
 		lastdigt = result % 10;
