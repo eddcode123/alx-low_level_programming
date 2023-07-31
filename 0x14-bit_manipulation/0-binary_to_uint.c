@@ -15,12 +15,12 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int decval = 0, result, base = 1, lastdigt;
 	int i;
 
+	/* check for null string */
+	if (!b)
+		return (0);
 	/* check if the char in string is a digit */
 	for (i = 0; b[i] != '\0'; i++)
 	{
-		/* check if b is null */
-		if (b == NULL)
-			return (0);
 		if (isalpha(b[i]))
 			return (0);
 	}
