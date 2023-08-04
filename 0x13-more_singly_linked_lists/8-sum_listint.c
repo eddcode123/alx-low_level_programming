@@ -17,10 +17,10 @@ int sum_listint(listint_t *head)
 	if (head == NULL)
 		return (0);
 	/* add all the n data to sum in the list */
-	while (head != NULL && head->next != NULL)
+	while (head != NULL)
 	{
-		head = head->next;
 		sum += head->n;
+		head = head->next;
 	}
 
 	return (sum);
