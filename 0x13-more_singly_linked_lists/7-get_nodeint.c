@@ -12,33 +12,11 @@
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
 	/* declare variable to iterate through list */
-	size_t i = 0, count = 0;
+	size_t i;
 
-	/* declare a temp variable to traverse through list */
-	listint_t *temp;
+	/* use a loop to traverse the list */
+	for (i = 0; i < index && head != NULL; i++)
+		head = head->next;
 
-	/* check if list is empty */
-	if (head != NULL)
-	{
-		/* point temp where head is pointing */
-		temp = head;
-		/* use a while loop to find lenght of list */
-		while (temp != NULL)
-		{
-			temp = temp->next;
-			count++;
-		}
-		/* check if index exist */
-		if (index > count && temp == NULL)
-			return (NULL);
-		/* reset temp to the start of the list */
-		temp = head;
-
-		while (temp != NULL && i < index)
-		{
-			temp = temp->next;
-			i++;
-		}
-	}
-	return (temp);
+	return (head);
 }
