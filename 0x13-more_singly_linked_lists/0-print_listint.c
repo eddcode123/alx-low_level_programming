@@ -24,11 +24,11 @@ size_t print_listint(const listint_t *h)
 			/* point h to next */
 			h = h->next;
 		}
+		/* count the last node */
+		count += 1;
+		/* print the values off the last node */
+		printf("%d\n", h->n);
 	}
-	/* count the last node */
-	count += 1;
-	/* print the values off the last node */
-	printf("%d\n", h->n);
 
 	return (count);
 }
