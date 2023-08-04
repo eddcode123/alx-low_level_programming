@@ -29,7 +29,7 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 			count++;
 		}
 		/* check if index exist */
-		if (index >= count)
+		if (index - 1 > count)
 			return (NULL);
 		/* reset temp to the start of the list */
 		temp = head;
