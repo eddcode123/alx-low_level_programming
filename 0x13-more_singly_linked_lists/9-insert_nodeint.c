@@ -17,7 +17,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	listint_t *current;
 	listint_t *temp;
 	/* declare a vaariable to get index */
-	size_t i = 0;
+	size_t i = 0, count = 0;
 
 	/* allocate memory to newnode */
 	newnode = (listint_t *) malloc(sizeof(listint_t));
@@ -29,6 +29,21 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	newnode->n = n;
 
 	/* point temp where head is pointing */
+	temp = *head;
+
+	/* find length of list */
+	while (temp->next != NULL)
+	{
+		count++;
+		temp = temp->next;
+	}
+	count += 1;
+
+	/* check if index is > than len */
+	if (idx > count)
+		return (NULL);
+
+	/* reset temp to the start of the list */
 	temp = *head;
 
 	/* check if list is empty */
@@ -48,5 +63,5 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	newnode->next = current->next;
 	current->next = newnode;
 
-	return (*head);
+	return (newnode);
 }
