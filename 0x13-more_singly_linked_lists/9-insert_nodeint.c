@@ -41,10 +41,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	}
 	/* if list is not empty add newnode at index */
 	while ((prevnode = temp) && i < idx - 1)
-
 	{
-		if (prevnode->next == NULL)
-			return (NULL);
 		temp = temp->next;
 		i++;
 	}
