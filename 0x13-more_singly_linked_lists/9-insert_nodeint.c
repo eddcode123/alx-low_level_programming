@@ -1,49 +1,51 @@
 #include "lists.h"
 
 /**
- * insert_nodeint_at_index - inserts a new node at a given position.
- * @head: head of the list
- * @idx: index to insert newnode
- * @n: value to add to newnode
+ * insert_nodeint_at_index - inserts a new node
+ * at a given position.
+ * @head: head of a list.
+ * @idx: index of the list where the new node is
+ * added.
+ * @n: integer element.
  *
- * Return: address of newnode
- * or NULL if failed
+ * Return: the address of the new node, or NULL if it
+ * failed.
  */
-
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	/* declare newnode */
-	listint_t *newnode;
-	listint_t *prevnode;
-	/* declare a vaariable to get index */
-	size_t i;
+	unsigned int i;
+	listint_t *new;
+	listint_t *h;
 
-	/* allocate memory to newnode */
-	newnode = (listint_t *) malloc(sizeof(listint_t));
+	h = *head;
 
-	/* check if malloc failed */
-	if (newnode == NULL)
+	if (idx != 0)
+	{
+		for (i = 0; i < idx - 1 && h != NULL; i++)
+		{
+			h = h->next;
+		}
+	}
+
+	if (h == NULL && idx != 0)
 		return (NULL);
-	/* insert value to new node */
-	newnode->n = n;
 
-	/* point temp where head is pointing */
-	prevnode = *head;
-	/* check if index is 0 */
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
+		return (NULL);
+
+	new->n = n;
+
 	if (idx == 0)
 	{
-		/* assign head to newnode->next */
-		newnode->next = *head;
-		/* point head to newnode */
-		*head = newnode;
+		new->next = *head;
+		*head = new;
 	}
-	/* if list is not empty add newnode at index */
-	for (i = 0; prevnode != NULL && i < idx - 1; i++)
-		prevnode = prevnode->next;
-	if (prevnode == NULL)
-		return (NULL);
-	newnode->next = prevnode->next;
-	prevnode->next = newnode;
+	else
+	{
+		new->next = h->next;
+		h->next = new;
+	}
 
-	return (newnode);
+	return (new);
 }
