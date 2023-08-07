@@ -16,7 +16,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	listint_t *newnode;
 	listint_t *prevnode;
 	/* declare a vaariable to get index */
-	size_t i = 0;
+	size_t i;
 
 	/* allocate memory to newnode */
 	newnode = (listint_t *) malloc(sizeof(listint_t));
@@ -29,20 +29,17 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 
 	/* point temp where head is pointing */
 	prevnode = *head;
-	/* check if list is empty */
+	/* check if index is 0 */
 	if (idx == 0)
 	{
-		/* assign head to newnode */
+		/* assign head to newnode->next */
 		newnode->next = *head;
 		/* point head to newnode */
 		*head = newnode;
 	}
 	/* if list is not empty add newnode at index */
-	while (prevnode != NULL && i < idx - 1)
-	{
+	for (i = 0; prevnode != NULL && i < idx - 1; i++)
 		prevnode = prevnode->next;
-		i++;
-	}
 	if (prevnode == NULL)
 		return (NULL);
 	newnode->next = prevnode->next;
