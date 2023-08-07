@@ -36,6 +36,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		temp = temp->next;
 		count++;
 	}
+	temp = *head;
 	/* check if list is empty */
 	if (temp == NULL)
 	{
