@@ -15,9 +15,7 @@ unsigned int binary_to_uint(const char *b)
 
 	/* initialize len with strlen of b */
 	len = strlen(b);
-	/* check if string is NULL */
-	if (b == NULL)
-		return (0);
+
 	/* iterate the string and covert it to decimal */
 	for (i = len - 1; i >= 0; i--)
 	{
