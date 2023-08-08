@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
-#include <ctype.h>
 
 /**
  * binary_to_uint - converts a binary number to an size_t
@@ -12,34 +10,22 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int decval = 0, result, base = 1, lastdigt;
-	int i;
-	char digit;
+	unsigned int result = 0;
+	int len, i;
 
-	/* check for null string */
+	/* initialize len with strlen of b */
+	len = strlen(b);
+	/* check if string is NULL */
 	if (b == NULL)
 		return (0);
-	/* check if the char in string is a digit */
-	for (i = 0; b[i] != '\0'; i++)
+	/* iterate the string and covert it to decimal */
+	for (i = len - 1; i >= 0; i--)
 	{
-		digit = b[i];
-
-		if (!isdigit(digit))
+		if (b[i] == '1')
+			result |= (1 << (len - 1 - i));
+		else if (b[i] != '0')
 			return (0);
 	}
-	result = atoi(b);
 
-	while (result != 0)
-	{
-		/* find last digit */
-		lastdigt = result % 10;
-		/* remove the last digit */
-		result = result / 10;
-		/* convert binary to decimal */
-		decval += lastdigt * base;
-		/*  update */
-		base += base;
-	}
-
-	return (decval);
+	return (result);
 }
