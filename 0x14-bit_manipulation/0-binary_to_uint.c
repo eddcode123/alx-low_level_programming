@@ -10,20 +10,29 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int result = 0;
-	int len, i;
+	unsigned int ui;
+	int len, base_two;
 
-	/* initialize len with strlen of b */
-	len = strlen(b);
+	if (!b)
+		return (0);
 
-	/* iterate the string and covert it to decimal */
-	for (i = len - 1; i >= 0; i--)
+	ui = 0;
+
+	for (len = 0; b[len] != '\0'; len++)
+		;
+
+	for (len--, base_two = 1; len >= 0; len--, base_two *= 2)
 	{
-		if (b[i] == '1')
-			result |= (1 << (len - 1 - i));
-		else if (b[i] != '0')
+		if (b[len] != '0' && b[len] != '1')
+		{
 			return (0);
+		}
+
+		if (b[len] & 1)
+		{
+			ui += base_two;
+		}
 	}
 
-	return (result);
+	return (ui);
 }
