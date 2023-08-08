@@ -17,7 +17,7 @@ unsigned int binary_to_uint(const char *b)
 	char digit;
 
 	/* check for null string */
-	if (!b)
+	if (b == NULL)
 		return (0);
 	/* check if the char in string is a digit */
 	for (i = 0; b[i] != '\0'; i++)
@@ -37,7 +37,7 @@ unsigned int binary_to_uint(const char *b)
 		result = result / 10;
 		/* convert binary to decimal */
 		decval += lastdigt * base;
-		/*  change base */
+		/*  update */
 		base += base;
 	}
 
