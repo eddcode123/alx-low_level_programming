@@ -27,7 +27,7 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (text_content)
 	{
 		/* use write to append to EOF */
-		wr = write(fd, &text_content, strlen(text_content));
+		wr = write(fd, text_content, strlen(text_content));
 		/* check if write failed */
 		if (wr == -1)
 			return (-1);
