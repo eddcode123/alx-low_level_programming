@@ -25,7 +25,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	/* allocate mamory to buffer */
 	buff = malloc(sizeof(char) * (letters));
-	/* check  of malloc failed */
+	/* check  if malloc failed */
 	if (!buff)
 		return (0);
 	/* read file if open was sucessful */
@@ -33,7 +33,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	/* checkif read failed */
 	if (r == -1)
 		return (0);
-	w = write(STDOUT_FILENO, buff, r);
+	w = write(1, buff, r);
 	if (w == -1)
 		return (0);
 	/* close file */
