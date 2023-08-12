@@ -25,8 +25,7 @@ int append_text_to_file(const char *filename, char *text_content)
 		return (-1);
 	/* check if the text_content is null */
 	if (!text_content)
-		/* make it an empty string */
-		text_content = "";
+		return (-1);
 	/* use write to append to EOF */
 	wr = write(fd, &text_content, strlen(text_content));
 	/* check if write failed */
