@@ -12,13 +12,13 @@
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
 	/* declare varables to use */
-	size_t i = 0; /* starting index */
+	size_t currentindex = 0; /* starting index */
 
 	/* check if index is zero */
 	if (index == 0)
 		return (head);
 	/* traverse list if not empty */
-	while (head != NULL && i < index)
+	while (head != NULL && currentindex < index)
 	{
 		/* point temp to next node */
 		head = head->next;
@@ -26,7 +26,7 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 		i++;
 	}
 	/* check if the index does not exist */
-	if (head == NULL && i < index)
+	if (head == NULL && currentindex < index)
 		return (NULL);
 
 	/* else return */

@@ -16,7 +16,7 @@ int sum_dlistint(dlistint_t *head)
 	/*check if list is empty */
 	if (head == NULL)
 		return (0);
-	/* travers list and to acess data of each list */
+	/* traverse list and to access data of each list */
 	while (head != NULL)
 	{
 		/* find sum of all data */
