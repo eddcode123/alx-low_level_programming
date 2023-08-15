@@ -10,12 +10,11 @@
 void free_dlistint(dlistint_t *head)
 {
 	/* declare prev pointer */
-	dlistint_t *temp = head;
+	dlistint_t *temp;
 
-	while (temp->next != NULL)
+	while ((temp = head) != NULL)
 	{
-		temp = temp->next;
-		free(temp->prev);
+		head = head->next;
+		free(temp);
 	}
-	free(temp);
 }
