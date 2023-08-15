@@ -17,12 +17,12 @@ int sum_dlistint(dlistint_t *head)
 	if (head == NULL)
 		return (0);
 	/* travers list and to acess data of each list */
-	while (head->next != NULL)
+	while (head != NULL)
 	{
-		/* point head to next node */
-		head = head->next;
 		/* find sum of all data */
 		sum += head->n;
+		/* move to the next node */
+		head = head->next;
 	}
 
 	return (sum);
