@@ -12,57 +12,44 @@
 
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	/* declare varibles to use */
-	dlistint_t *newnode;
-	dlistint_t *temp, *nextnode;
-	size_t currentindex = 0;
+	dlistint_t *newnode, *temp, *nextnode;
+	unsigned int currentindex = 0;
 
-	/* allocate memory to newnode */
-	newnode = (dlistint_t *) malloc(sizeof(dlistint_t));
-
-	/* check for malloc error */
-	if (newnode == NULL)
-		return (NULL);
-	/* add data to newmode */
-	newnode->n = n;
-
-	/* point temp where head is pointing */
-	temp = *h;
-
-	/* check if index is 0 */
-	if (idx == 0)
+	if (idx == 0) /* insert at the beginning of list */
 	{
-		newnode->prev = NULL;
-		newnode->next = *h;
-		/*check if list is not empty */
-		if (*h != NULL)
-			(*h)->prev = newnode;
-		*h = newnode;
+		newnode = add_dnodeint(h, n); /* call function */
 		return (newnode);
 	}
-	/* travese list */
-	while (temp != NULL && currentindex < idx - 1)
+
+	temp = *h;
+	while (temp != NULL && currentindex < idx - 1) /* traverse list */
 	{
-		/* move to next node */
-		temp = temp->next;
-		currentindex++;
+		temp = temp->next; /* move to next node */
+		currentindex++; /* increament currentindex */
 	}
-	/*check if temp is empty */
-	if (temp == NULL)
+
+	if (temp == NULL) /* check if index is out of bound */
 	{
-		/* free newnode */
-		free(newnode);
 		return (NULL);
 	}
-	/* check if node exist */
-	if (temp->next != NULL)
-	{
-		nextnode = temp->next;
-		temp->next->prev = newnode;
-	}
-	temp->next = newnode;
-	newnode->next = nextnode;
-	nextnode->prev = newnode;
 
+	if (temp->next == NULL) /* check if its end of list */
+	{
+		newnode = add_dnodeint_end(h, n); /* call function */
+	}
+	else /* if its not 1st or last position then */
+	{
+		/* allocate memory to newnode */
+		newnode = (dlistint_t *)malloc(sizeof(dlistint_t));
+		if (newnode != NULL) /* add at index if malloc did not fail */
+		{
+			newnode->n = n; /* add data to newnode */
+			nextnode = temp->next; /*store address of nextnode */
+			newnode->prev = temp; /* point newnode prev to current node */
+			temp->next = newnode; /* point current nodenext to newnode */
+			newnode->next = nextnode; /* point newnodenext to nextnode */
+			nextnode->prev = newnode; /* point nextnode prev to newnode */
+		}
+	}
 	return (newnode);
 }
