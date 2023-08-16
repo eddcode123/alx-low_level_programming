@@ -23,7 +23,7 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 		/* point temp to next node */
 		head = head->next;
 		/* increament i */
-		i++;
+		currentindex++;
 	}
 	/* check if the index does not exist */
 	if (head == NULL && currentindex < index)
