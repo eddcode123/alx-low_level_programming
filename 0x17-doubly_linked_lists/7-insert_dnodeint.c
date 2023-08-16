@@ -12,7 +12,7 @@
 
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *newnode = NULL, *temp, *nextnode;
+	dlistint_t *newnode, *temp, *nextnode;
 	unsigned int currentindex = 0;
 
 	if (idx == 0) /* insert at the beginning of list */
@@ -28,7 +28,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		currentindex++; /* increament currentindex */
 	}
 	/* check if index is out of bound */
-	if (temp == NULL && currentindex < idx - 1)
+	if (temp == NULL)
 	{
 		return (NULL);
 	}
