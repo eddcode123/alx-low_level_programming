@@ -27,8 +27,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		temp = temp->next; /* move to next node */
 		currentindex++; /* increament currentindex */
 	}
-
-	if (temp == NULL) /* check if index is out of bound */
+	/* check if index is out of bound */
+	if (temp == NULL && currentindex < idx - 1)
 	{
 		return (NULL);
 	}
