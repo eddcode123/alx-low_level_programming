@@ -8,26 +8,22 @@
  *
  * Return: pointer to resulting dest string
  */
-char *_strncpy(char *dest, char *src, int n)
-{
-	int i = 0;
 
-	/* check for null terminatior & when n is 0 */
-	if (*dest == '\0' || *src == '\0' || n == 0)
+char *_strncpy(char *dest, const char *src, int n)
+{
+	char *dest_start = dest;
+
+	while (n > 0 && *src != '\0')
 	{
-		return (dest);
+		*dest++ = *src++;
+		n--;
 	}
-	/* copy to dest from src */
-	while (i < n && src[i] != '\0')
+	/*Fill any remaining space in dest with null characters */
+	while (n > 0)
 	{
-		dest[i] = src[i];
-		i++;
+		*dest++ = '\0';
+		n--;
 	}
-	/* add null till i < n */
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+
+	return (dest_start);
 }
