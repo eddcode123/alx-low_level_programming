@@ -9,21 +9,14 @@
  * Return: pointer to resulting dest string
  */
 
-char *_strncpy(char *dest, const char *src, int n)
+char *_strncpy(char *dest, char *src, int n)
 {
-	char *dest_start = dest;
+	int i;
 
-	while (n > 0 && *src != '\0')
-	{
-		*dest++ = *src++;
-		n--;
-	}
-	/*Fill any remaining space in dest with null characters */
-	while (n > 0)
-	{
-		*dest++ = '\0';
-		n--;
-	}
+	for (i = 0; i < n && src[i] != '\0'; i++)
+		dest[i] = src[i];
+	for ( ; i < n; i++)
+		dest[i] = '\0';
 
-	return (dest_start);
+	return (dest);
 }
