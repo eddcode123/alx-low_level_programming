@@ -1,21 +1,17 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_is_leaf - checks if a nodde is a left node
- * @node: node to be checked
+ * binary_tree_is_leaf - checks if a node is a leaf
  *
- * Return: returns 1 is node is a leaf node and 0 otherwise
+ * @node: pointer to the node to check
+ * Return: 1 if node is a leaf, otherwise 0
  */
 int binary_tree_is_leaf(const binary_tree_t *node)
 {
-	/* Initialize 'leaf' to 1 if the node has no left and right children */
 	int leaf = 0;
 
-	/* check if node is leaf */
-	if (node && ((node->left == NULL) && (node->right == NULL)))
-	{
+	if (node && !(node->left) && !(node->right))
 		leaf = 1;
-	}
 
 	return (leaf);
 }
