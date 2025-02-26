@@ -1,31 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "lists.h"
 
 /**
- * list_len - prints the length of the list
- * @h: head of the list
+ * list_len - finds the size of the linked list
+ * @h: pointer to the first node
  *
- * Return: length of the list
- */
-
+ * Return: size of the linked list
+*/
 size_t list_len(const list_t *h)
 {
-	/* declare a count variable and initialize to 0 */
-	size_t count = 0;
+	size_t size = 0;
+	const list_t *temp = h;
 
-	/* chech if list is empty */
-	if (h != NULL)
+	while (temp != NULL)
 	{
-		/* if list is not empty use a loop to find len */
-		while (h->next != NULL)
-		{
-			/* increamnt count each iteration */
-			count += 1;
-			/* point head to the next list each itearation */
-			h = h->next;
-		}
-		/* increament count by 1 for the last list */
-		count += 1;
+		size++;
+		temp = temp->next;
 	}
 
-	return (count);
+	return (size);
 }
