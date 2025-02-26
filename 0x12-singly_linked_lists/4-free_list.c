@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * free_list - frees a list_t list.
+ * free_list - frees memory allocated to a linked list.
  * @head: head of list
  *
  * Return: nothing
@@ -9,14 +9,16 @@
 
 void free_list(list_t *head)
 {
-	/* declare current pointer */
-	list_t *current;
+	/* declare temp pointer */
+	list_t *temp;
 
-	/* use a while loop to free node */
-	while ((current = head) != NULL)
+	while (head != NULL)
 	{
+		temp = head;
 		head = head->next;
-		free(current->str);
-		free(current);
+
+		free(temp->str);
+		free(temp);
 	}
+	
 }
