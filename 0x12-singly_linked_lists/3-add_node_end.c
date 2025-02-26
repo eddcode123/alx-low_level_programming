@@ -1,48 +1,41 @@
 #include "lists.h"
 
 /**
- * add_node_end - adds a new node at the end of a list_t list.
- * @head: head of list
- * @str: string to add to crated node
+ * add_node_end - add node at the end of the linked list
+ * @head: pointer to the first node
+ * @str: string to insert in the node
  *
- * Return: address of node
- * or null if it fails
+ * Return: address of the added node or null if it fails
  */
-
 list_t *add_node_end(list_t **head, const char *str)
 {
-	/* declare newnode to add at end of list */
-	list_t *endNode;
 	list_t *temp;
-	/* allocate memory to endnode */
-	endNode = (list_t *) malloc(sizeof(list_t));
+	/* delcare the node */
+	list_t *node = (list_t *) malloc(sizeof(list_t));
+	/* return null if malloc fails */
+	if (node == NULL)
+	{
+		return (node);
+	}
 
-	/* check if malloc failed */
-	if (endNode == NULL)
-		return (NULL);
-	/* assign values to endNode */
-	endNode->str = strdup(str);
-	endNode->len = strlen(str);
+	/* populate the node */
+	node->str = strdup(str);
+	node->len = strlen(str);
+	node->next = NULL;
 
-	/* point endNode next to NULL */
-	endNode->next = NULL;
+	/* treverse and append node */
 	temp = *head;
-	/* check if list is empty */
-	if (temp == NULL)
+
+	if (*head == NULL)
 	{
-		/* point head to endNode */
-		*head = endNode;
-	}
-	else
-	{
-		/* use a loop to go to end of list */
-		while (temp->next != NULL)
-		{
-			temp = temp->next;
-		}
-		/* point endnode to null then point temp->next to endNode */
-		temp->next = endNode;
+		*head = node;
 	}
 
-	return (*head);
+	while (temp->next != NULL)
+	{
+		temp = temp->next;
+	}
+	temp->next = node;
+
+	return (node);
 }
