@@ -1,42 +1,39 @@
 #include "lists.h"
 
 /**
- * add_node - adds node at the start of the linked list
- * @head: pointer to the first node
- * @str: pointer to string
+ * add_node - adds a new node at the beginning of a list_t list.
+ * @head: head of the list.
+ * @str: string to add to new node
  *
- * Return: address of the new node or NULL if it fails
+ * Return: address of new element
+ * or NULL if failed
  */
+
 list_t *add_node(list_t **head, const char *str)
 {
 	/* declare new node */
-	list_t *node;
+	list_t *newNode;
+	/* allocate memory for newNode using malloc */
+	newNode = (list_t *) malloc(sizeof(list_t));
 
-	/* allocate memory to new node dynamically */
-	node = (list_t *) malloc(sizeof(list_t));
-
-	/* check if malloc failed to allocate  */
-	if (node == NULL)
-	{
+	/* check if malloc failled */
+	if (newNode == NULL)
 		return (NULL);
-	}
+	/* assign values to newNode */
+	newNode->str = strdup(str);
+	newNode->len = strlen(str);
 
-	/* add values to the created node */
-	node->str = strdup(str);
-	node->len = strlen(str);
-
-	/* check if the list is empty */
-	if (!*head)
+	/* check if list is empty */
+	if (*head == NULL)
 	{
-		/* point node next to null */
-		node->next = NULL;
+		/* if empty assign newNode null */
+		newNode->next = NULL;
 	}
 	else
-	{
-		node->next = *head;
-	}
-	*head = node;
+		/* add newNode at the begining */
+		newNode->next = *head;
+	/* point head to newNode */
+	*head = newNode;
 
-	/* return  address of node */
 	return (*head);
 }
