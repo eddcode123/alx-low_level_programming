@@ -3,49 +3,49 @@
 /**
  * insert_nodeint_at_index - inserts a new node
  * at a given position.
- * @head: head of a list.
- * @idx: index of the list where the new node is
- * added.
- * @n: integer element.
+ * @head: pointer to first node.
+ * @idx: index to insert node
+ * @n: data to populate node.
  *
  * Return: the address of the new node, or NULL if it
  * failed.
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	unsigned int i;
-	listint_t *new;
-	listint_t *h;
+	listint_t *temp = *head;
+	size_t count;
+	listint_t *node = (listint_t *) malloc(sizeof(listint_t));
 
-	h = *head;
-
-	if (idx != 0)
+	/* check if malloc failed */
+	if (!node)
 	{
-		for (i = 0; i < idx - 1 && h != NULL; i++)
-		{
-			h = h->next;
-		}
+		return (node);
 	}
 
-	if (h == NULL && idx != 0)
-		return (NULL);
+	node->n = n;
 
-	new = malloc(sizeof(listint_t));
-	if (new == NULL)
-		return (NULL);
-
-	new->n = n;
-
-	if (idx == 0)
+	if (idx == 0 && temp)
 	{
-		new->next = *head;
-		*head = new;
-	}
-	else
-	{
-		new->next = h->next;
-		h->next = new;
+		node->next = *head;
+		*head = node;
+		return (node);
 	}
 
-	return (new);
+	/* traverse and insert at index */
+	for (count = 0; count < idx - 1 && temp != NULL; count++)
+	{
+		temp = temp->next;
+	}
+
+	/* insert if temp value is not NULL */
+	if (temp)
+	{
+		node->next = temp->next;
+		temp->next = node;
+		return (node);
+	}
+
+	free(node);
+
+	return (NULL);
 }
