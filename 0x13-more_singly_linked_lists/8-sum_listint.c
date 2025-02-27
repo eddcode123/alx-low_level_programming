@@ -10,18 +10,14 @@
 
 int sum_listint(listint_t *head)
 {
-	/* declare a variable sum */
 	int sum = 0;
-
-	/* check if the list is empty */
-	if (head == NULL)
-		return (0);
-	/* add all the n data to sum in the list */
-	while (head != NULL)
+	listint_t *temp = head;
+	
+	while ( temp != NULL )
 	{
-		sum += head->n;
-		head = head->next;
+		sum+=temp->n;
+		temp = temp->next;
 	}
 
-	return (sum);
+	return sum;
 }
