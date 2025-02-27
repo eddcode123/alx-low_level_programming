@@ -14,7 +14,7 @@ int pop_listint(listint_t **head)
 	int popped;
 
 	/* edge case where list is empty */
-	if (head == NULL)
+	if (*head == NULL)
 	{
 		return (0);
 	}
