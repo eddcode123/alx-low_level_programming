@@ -11,12 +11,14 @@
 
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
-	/* declare variable to iterate through list */
-	size_t i;
+	listint_t *temp = head;
+	unsigned int count;
 
-	/* use a loop to traverse the list */
-	for (i = 0; i < index && head != NULL; i++)
-		head = head->next;
+	/* traverse list and return the nth node */
+	for (count = 0; count < index && temp != NULL; count++)
+	{
+		temp = temp->next;
+	}
 
-	return (head);
+	return (temp);
 }
