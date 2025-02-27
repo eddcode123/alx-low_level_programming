@@ -12,7 +12,7 @@ int pop_listint(listint_t **head)
 {
 	listint_t *temp;
 	int popped;
-	
+
 	/* edge case where list is empty */
 	if (head == NULL)
 	{
