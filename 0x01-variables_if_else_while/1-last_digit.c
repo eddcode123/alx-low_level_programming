@@ -28,7 +28,7 @@ int main(void)
 	}
 	else
 	{
-		printf("%d", last_digit);
+		printf("%c", (char)last_digit);
 	}
 	return (0);
 }
