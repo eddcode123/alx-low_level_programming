@@ -9,13 +9,13 @@
 int main(void)
 {
 	char *message = "_putchar";
-	int i;
+	size_t i;
 
 	for (i = 0; i < strlen(message); i++)
 	{
-		putchar(message[i]);
+		_putchar(message[i]);
 	}
-	putchar('\n');
+	_putchar('\n');
 
 	return (0);
 }
