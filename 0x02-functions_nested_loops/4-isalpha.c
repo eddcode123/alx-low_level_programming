@@ -9,20 +9,9 @@
 
 int _isalpha(int c)
 {
-	int ch;
-
-	/* make c lowercase if its uppercase */
-	if (!_islower(c))
+	if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z')
 	{
-		c -= 32;
-	}
-
-	for (ch = 'a'; ch <= 'z'; ch++)
-	{
-		if (c == ch)
-		{
-			return (1);
-		}
+		return (1);
 	}
 
 	return (0);
