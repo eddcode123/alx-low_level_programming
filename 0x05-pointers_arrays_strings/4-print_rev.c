@@ -14,8 +14,8 @@ void print_rev(char *s)
 	while (*s != '\0')
 	{
 		/* find length of string */
-		len++;
 		s++;
+		len++;
 	}
 
 	while (len >= 0)
