@@ -11,6 +11,7 @@
 void print_rev(char *s)
 {
 	int len = 0;
+	int i;
 
 	/* find length of string */
 	len = strlen(s);
