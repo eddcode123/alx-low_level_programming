@@ -12,8 +12,12 @@ void print_rev(char *s)
 {
 	int len = 0;
 
-	/* find length of string */
-	len = _strlen(s);
+	while (*s != '\0')
+	{
+		/* find length of string */
+		len++;
+		s++;
+	}
 
 	while (len >= 0)
 	{
