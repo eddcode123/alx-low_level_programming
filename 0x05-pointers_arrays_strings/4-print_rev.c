@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <string.h>
 #include "main.h"
 
 /**
@@ -11,6 +9,7 @@
 void print_rev(char *s)
 {
 	int len = 0;
+	char *string = s;
 
 	while (*s != '\0')
 	{
@@ -21,7 +20,7 @@ void print_rev(char *s)
 
 	while (len >= 0)
 	{
-		printf("%c", s[len]);
+		_putchar(string[len]);
 		len--;
 	}
 }
