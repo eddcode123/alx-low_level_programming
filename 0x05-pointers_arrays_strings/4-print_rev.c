@@ -9,20 +9,18 @@
 void print_rev(char *s)
 {
 	int len = 0;
-	char *string = s;
 
-	while (*s != '\0')
+	/* calculate length of string */
+	while (s[len] != '\0')
 	{
-		/* find length of string */
-		s++;
 		len++;
 	}
 
+	/* Reverse string */
 	while (len > 0)
 	{
+		_putchar(s[len]);
 		len--;
-		_putchar(string[len]);
 	}
 	_putchar('\n');
-
 }
