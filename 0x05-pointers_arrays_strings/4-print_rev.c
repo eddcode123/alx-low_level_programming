@@ -13,7 +13,7 @@ void print_rev(char *s)
 	int len = 0;
 
 	/* find length of string */
-	len = strlen(s);
+	len = _strlen(s);
 
 	while (len >= 0)
 	{
