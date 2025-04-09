@@ -8,20 +8,17 @@
 */
 char *_strcpy(char *src, char *dest)
 {
-	char *start = dest;
+	char *temp = dest;
 
 	/* copy src string to dest */
 	while (*src != '\0')
 	{
-		*src = *dest;
+		*src = *temp;
 		src++;
-		dest++;
+		temp++;
 	}
 	/* move dest to and add null terminator */
-	dest++;
-	*dest = '\0';
-	/* reset dest to point to the start of the string */
-	dest = start;
-
+	temp++;
+	*temp = '\0';
 	return (dest);
 }
