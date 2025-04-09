@@ -1,30 +1,29 @@
-#include <stdio.h>
-#include <string.h>
 #include "main.h"
 
 /**
- * puts2 - prints every other character of a string, starting 1st
- * @str: string to print
- *
- * Return: nothing
- */
+ * puts2 - prints every other character of a string
+ * @str: pointer to an array of character
+ * Return: Nothing
+*/
 
 void puts2(char *str)
 {
-	int i, len;
+	int len = 0;
+	int i;
 
-	/* find the len of string */
-	len = strlen(str);
-	/* print string */
+	/* Compute the length of a string */
+	while (str[len] != '\0')
+	{
+		len++;
+	}
+
+	/* Create an algorithm to print */
 	for (i = 0; i < len - 1; i++)
 	{
-		if (i > 0)
+		if (i % 2 == 0)
 		{
-			i += 1;
-			printf("%c", str[i]);
+			_putchar(str[i]);
 		}
-		else
-			printf("%c", str[i]);
 	}
-	printf("\n");
+	_putchar('\n');
 }
