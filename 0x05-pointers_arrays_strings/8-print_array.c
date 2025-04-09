@@ -3,17 +3,17 @@
 
 /**
  * print_array - Prints n elements of an array
- * @a: pointer to the first element in array
- * @n: The number of elemensts to be printed
+ * @a: Pointer to the first element in the array
+ * @n: The number of elements to be printed
+ *
  * Return: Nothing
-*/
-
+ */
 void print_array(int *a, int n)
 {
 	int i;
 
-	/* Edege case: A valid pointer */
-	if (a)
+	/* Check for a valid pointer and non-negative n */
+	if (a && n > 0)
 	{
 		for (i = 0; i < n; i++)
 		{
@@ -23,7 +23,6 @@ void print_array(int *a, int n)
 				printf(", ");
 			}
 		}
-		_putchar('\n');
+		printf("\n");
 	}
-
 }
