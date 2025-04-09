@@ -16,7 +16,7 @@ void print_array(int *a, int n)
 	if (a)
 	{
 		/* Edge case: A valid number of elements */
-		if (n > 0)
+		if (n >= 0)
 		{
 			for (i = 0; i < n; i++)
 			{
