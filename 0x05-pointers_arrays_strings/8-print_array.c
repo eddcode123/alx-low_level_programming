@@ -2,24 +2,32 @@
 #include "main.h"
 
 /**
- * print_array -  prints n elements of an array of integers
- * @n: print n elements
- * @a: array name
- *
- * Return: nothing
- */
+ * print_array - Prints n elements of an array
+ * @a: pointer to the first element in array
+ * @n: The number of elemensts to be printed
+ * Return: Nothing
+*/
 
 void print_array(int *a, int n)
 {
 	int i;
 
-	/* print elements of array */
-	for (i = 0; i < n; i++)
+	/* Edege case: A null pointer */
+	if (a)
 	{
-		if (i != n - 1)
-			printf("%d, ", a[i]);
-		else
-			printf("%d", a[i]);
+		/* Edge case: A valid number of elements */
+		if (n > 0)
+		{
+			for (i = 0; i < n; i++)
+			{
+				/* Include comma and space expect the case of last element */
+				if (i != n - 1)
+				{
+					printf("%d, ", a[i]);
+				}
+				printf("%d/n", a[i]);
+			}
+		}
 	}
-	printf("\n");
+
 }
