@@ -1,6 +1,5 @@
 #include <stdbool.h>
-#include <stdio.h>
-#include <ctype.h>
+#include "main.h"
 
 /**
  * _atoi - Converts a string to an integer.
@@ -21,7 +20,7 @@ int _atoi(char *s)
 		{
 			sign *= -1;
 		}
-		else if (isdigit(*s))
+		else if (*s >= 48 && *s <= 57)
 		{
 			result = result * 10 + (*s - '0');
 			set = true; /* Start processing number */
