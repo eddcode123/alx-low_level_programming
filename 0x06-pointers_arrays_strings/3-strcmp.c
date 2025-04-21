@@ -4,25 +4,22 @@
  * _strcmp - Function that compares two strings
  * @s1: pointer to the first string
  * @s2: pointer to the second string
- * Return: 1 if ascii value is greater,
- * 0 is the string is equal, -1 if ascii
- * value is less
-*/
+ * Return: Negative value if s1 < s2, 0 if s1 == s2,
+ * Positive value if s1 > s2
+ */
 int _strcmp(char *s1, char *s2)
 {
 	int cursor = 0;
 
-	while (s1[cursor] != '\0')
+	while (s1[cursor] != '\0' && s2[cursor] != '\0')
 	{
-		if (s1[cursor] > s2[cursor])
+		if (s1[cursor] != s2[cursor])
 		{
-			return (1);
+			return (s1[cursor] - s2[cursor]);
 		}
-		else
-		{
-			return (-1);
-		}
+		cursor++;
 	}
 
-	return (0);
+	/* Handle cases where strings have different lengths */
+	return (s1[cursor] - s2[cursor]);
 }
