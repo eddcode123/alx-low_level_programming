@@ -1,26 +1,37 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdbool.h>
 
 /**
-* cap_string -> capitalization function
-* @x: string param
-* Return: capitalized version of the string
+ * cap_string - Function that capitalizes a string
+ * @s: string to be capitalized
+ * Return: pointer to capitalized string
 */
-char *cap_string(char *x)
+char *cap_string(char *s)
 {
+	int cursor = 0, i;
+	bool sep = false;
 	char spc[] = {32, 9, '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}'};
-	int len = 13;
-	int a = 0, i;
+	int n = 13;
 
-	while (x[a])
+	while (s[cursor] != '\0')
 	{
-		i = 0;
-		while (i < len)
+		/* check for a valid charcters to capitalize */
+		if (sep && s[cursor] >= 97 && s[cursor] <= 122)
 		{
-			if ((a == 0 || x[a - 1] == spc[i]) && (x[a] >= 97 && x[a] <= 122))
-				x[a] = x[a] - 32;
-			i++;
+			s[cursor] -= 32;
 		}
-		a++;
+		sep = false;
+		for (i = 0; i < n; i++)
+		{
+			if (s[cursor] == spc[i])
+			{
+				sep = true;
+				break;
+			}
+		}
+		cursor++;
 	}
-	return (x);
+
+	return (s);
 }
