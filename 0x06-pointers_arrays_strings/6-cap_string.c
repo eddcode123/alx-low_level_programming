@@ -11,7 +11,7 @@ char *cap_string(char *s)
 {
 	int cursor = 0, i;
 	bool sep = false;
-	char spc[] = {32, 9, '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}', '\t'};
+	char spc[] = {32, 9, '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}'};
 	int n = 14;
 
 	while (s[cursor] != '\0')
