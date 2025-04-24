@@ -1,27 +1,37 @@
 #include "main.h"
-
+#include <string.h>
 /**
-* leet -> a leet function
-* @x: param x
-* Return: a string
+ * leet - function that encodes a string to 1337
+ * @s: pointer to a string
+ * Return: Pointer to the modified string
 */
-char *leet(char *x)
+char *leet(char *s)
 {
-	int a = 0, b, l = 5;
-	char tr[5] = {'A', 'E', 'O', 'T', 'L'};
-	char trw[5] = {'4', '3', '0', '7', '1'};
+	int cursor = 0;
 
-	while (x[a])
+	while (s[cursor] != '\0')
 	{
-		b = 0;
-
-		while (b < l)
+		if (s[cursor] == 'a' || s[cursor] == 'A')
 		{
-			if (x[a] == tr[b] || x[a] - 32 == tr[b])
-				x[a] = trw[b];
-			b++;
+			s[cursor] = '4';
 		}
-		a++;
+		else if (s[cursor] == 'e' || s[cursor] == 'E')
+		{
+			s[cursor] = '3';
+		}
+		else if (s[cursor] == 'o' || s[cursor] == 'O')
+		{
+			s[cursor] = '0';
+		}
+		else if (s[cursor] == 't' || s[cursor] == 'T')
+		{
+			s[cursor] = '7';
+		}
+		else if (s[cursor] == 'l' || s[cursor] == 'L')
+		{
+			s[cursor] = '1';
+		}
 	}
-	return (x);
+
+	return (s);
 }
