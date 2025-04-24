@@ -31,6 +31,8 @@ char *leet(char *s)
 		{
 			s[cursor] = '1';
 		}
+
+		cursor++;
 	}
 
 	return (s);
