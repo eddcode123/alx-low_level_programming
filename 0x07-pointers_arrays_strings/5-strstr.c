@@ -18,12 +18,12 @@ char *_strstr(char *haystack, char *needle)
 		return (haystack);
 	}
 
-	while (haystack)
+	while (*haystack)
 	{
 		h = haystack;
 		n = needle;
 
-		while (h && n && (*n == *h))
+		while (*h && *n && (*n == *h))
 		{
 			n++;
 			h++;
