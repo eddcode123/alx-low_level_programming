@@ -1,16 +1,16 @@
 #include "main.h"
 
 /**
- * print_numbers - prints 0 - 9 followed by newline
- *
+ * print_numbers - Function that prints base 10 numbers
  * Return: nothing
- */
+*/
 void print_numbers(void)
 {
-	/* print 0 - 9 using a loop */
-	int i;
+	int i = 0;
 
-	for (i = 0; i < 10; i++)
-		_putchar('0' + i);
+	while (i <= 9)
+	{
+		_putchar(i + '0');
+	}
 	_putchar('\n');
 }
