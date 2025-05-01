@@ -1,18 +1,21 @@
 #include "main.h"
 
 /**
- * print_most_numbers - prints 0 - 9 except 2 & 4
- *
+ * print_most_numbers - Function that prints base 10 numbers excluding
+ * 2, 4
  * Return: nothing
- */
+*/
 void print_most_numbers(void)
 {
-	/* print 0 - 9 using a loop */
-	int i;
+	int i = 0;
 
-	for (i = 0; i < 10; i++)
-		/* use if to remove 2 & 4 */
+	while (i <= 9)
+	{
 		if (i != 2 && i != 4)
-			_putchar('0' + i);
+		{
+			_putchar(i + '0');
+		}
+		i++;
+	}
 	_putchar('\n');
 }
