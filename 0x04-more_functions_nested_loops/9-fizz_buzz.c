@@ -4,7 +4,7 @@
  * main - fizzbuzz
  * Return: always 0 for success
 */
-int main()
+int main(void)
 {
 	int i;
 
