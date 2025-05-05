@@ -1,37 +1,29 @@
 #include <stdio.h>
-#include "main.h"
 
 /**
- * main - replaces multiples of 3 & 5 with certain words
- *
- *
- * Return: always 0
- */
-int main(void)
+ * main - fizzbuzz
+ * Return: always 0 for success
+*/
+int main()
 {
-	/* declare variables */
 	int i;
-	int n = 100;
 
-	/* use for loop to print numbers */
-	for (i = 1; i <= n; i++)
+	for (i = 1; i <= 100; i++)
 	{
 		if (i % 3 == 0 && i % 5 == 0)
-			printf("FizzBuzz ");
+		{
+			printf("Fizz Buzz");
+		}
 		else if (i % 3 == 0)
 		{
-			printf("Fizz ");
+			printf("Fizz");
 		}
 		else if (i % 5 == 0)
 		{
-			if (i < 100)
-				printf("Buzz ");
-			else
-				printf("Buzz");
+			printf("Buzz");
 		}
-		else
-			printf("%d ", i);
 	}
 	printf("\n");
+
 	return (0);
 }
