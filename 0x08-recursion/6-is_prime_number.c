@@ -1,30 +1,39 @@
 #include "main.h"
+int helper(int x, int n);
 
-int check_prime(int, int);
 /**
-* is_prime_number -> prime identifier
-* @n: is number
-* Return: integer
+ * is_prime_number - Function that checks if a number is a prime
+ * number
+ * @n: number to be checked
+ * Return: 1 if true otherwise 0
 */
 int is_prime_number(int n)
 {
-	return (check_prime(n, 1));
+	if (n < 2)
+	{
+		return (0);
+	}
+	return (helper(2, n));
 }
 
-
 /**
-* check_prime -> it check prime numbers
-* @n: number
-* @i: iterator
-* Return: a 1 or 0
+ * helper - Recursively checks if a number is divisible by any number
+ * @x: current divisor to test
+ * @n: number to check
+ * Return: 1 if prime, 0 otherwise
 */
-int check_prime(int n, int i)
+
+int helper(int x, int n)
 {
-	if (n <= 1)
+	if (n % x == 0)
+	{
 		return (0);
-	if (n % i == 0 && i > 1)
-		return (0);
-	if ((n / i) < i)
+	}
+	if (x * x > n)
+	{
 		return (1);
-	return (check_prime(n, i + 1));
+	}
+
+	return (helper(x + 1, n));
+
 }
