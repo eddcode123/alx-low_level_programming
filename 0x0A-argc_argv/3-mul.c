@@ -1,31 +1,20 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 /**
- * main - multiplies to numbers and prints result
- * @argc: number of arguments passed
- * @argv: array of strings
- *
- * Return: 0 for success
- */
+ * main - function that computes the multiplication of two arguments
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: Always 0
+*/
 
 int main(int argc, char **argv)
 {
-	int i, multy = 1;
 
-	/* check if the argumets passed are two */
 	if (argc == 3)
 	{
-		for (i = 1; i < argc; i++)
-		{
-			multy *= atoi(argv[i]);
-		}
+		printf("%d\n",(int)argv[1] * (int)argv[2]);
+		return (0);
 	}
-	else
-	{
-		printf("Error\n");
-		return (1);
-	}
-	printf("%d\n", multy);
-	return (0);
+	printf("Error\n");
+	return (1);
 }
