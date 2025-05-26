@@ -1,16 +1,15 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
- * main - print the name of program
- * @argc: argument cout
- * @argv: array of strings
+ * main - function that prints its name
+ * @argc: argument count
+ * @argv: argument vector
  *
- * Return: 0 for success
- */
-
+ * Return: always 0
+*/
 int main(int argc, char **argv)
 {
-	/* print argv[argc - 1] */
-	printf("%s\n", argv[argc - 1]);
-	return (0);
+	printf("%s\n", argv[0]);
+	exit(EXIT_SUCCESS);
 }
