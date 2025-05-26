@@ -5,10 +5,11 @@
  * main - function that prints the number of arguments passed
  * @argc: argument count
  * @argv: argument vector
- * Return: argument count
+ * Return: always 0
 */
 int main(int argc,  char **argv)
 {
-	(void)argv;
-	return (argc - 1);
+    (void)argv;
+	printf("%d\n", (argc - 1));
+    return (0);
 }
