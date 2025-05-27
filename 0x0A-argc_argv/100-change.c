@@ -1,37 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 /**
-* main -> this is a function to print its name
-* @argc: argc parameter
-* @argv: an array of a command listed
-* Return: 0 for success
+ * main - Compute and print the minimum number of coins to make change
+ * @argc: Argument count
+ * @argv: Argument vector
+ * Return: 0 if successful, 1 if there's an error
 */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int num, j, result = 0;
+	int i, count, value;
 	int coins[] = {25, 10, 5, 2, 1};
+
+	count = 0;
 
 	if (argc != 2)
 	{
-		printf("%s\n", "Error");
+		printf("Error\n");
 		return (1);
 	}
 
-	num = atoi(argv[1]);
-	if (num < 0)
+	/* check if the argument is a digit */
+	for (i = 0; argv[1][i] != '\0'; i++)
 	{
-		printf("0\n");
-		return (0);
-	}
-	for (j = 0; j < 5 && num >= 0; j++)
-	{
-		while (num >= coins[j])
+		if (!isdigit(argv[1][i]))
 		{
-			num -= coins[j];
-			result++;
+			printf("Error\n");
+			return (1);
 		}
 	}
-	printf("%d\n", result);
+	value = atoi(argv[1]);
+
+	/* compute the minimum coins change to return */
+	for (i = 0; i < 5 && value > 0; i++)
+	{
+		count += value / coins[i];
+		printf("iteration: %d count: %d\n", i, count);
+		value %= coins[i];
+		printf("value: %d\n", value);
+	}
+	printf("%d\n", count);
 	return (0);
 }
