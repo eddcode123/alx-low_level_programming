@@ -36,9 +36,7 @@ int main(int argc, char **argv)
 	for (i = 0; i < 5 && value > 0; i++)
 	{
 		count += value / coins[i];
-		printf("iteration: %d count: %d\n", i, count);
 		value %= coins[i];
-		printf("value: %d\n", value);
 	}
 	printf("%d\n", count);
 	return (0);
