@@ -20,16 +20,6 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		return (1);
 	}
-
-	/* check if the argument is a digit */
-	for (i = 0; argv[1][i] != '\0'; i++)
-	{
-		if (!isdigit(argv[1][i]))
-		{
-			printf("Error\n");
-			return (1);
-		}
-	}
 	value = atoi(argv[1]);
 
 	/* compute the minimum coins change to return */
