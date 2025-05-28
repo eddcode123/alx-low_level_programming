@@ -13,6 +13,7 @@ char *str_concat(char *s1, char *s2)
 	char *str;
 	int len_s1, len_s2;
 	int i, j;
+
 	len_s1 = 0, len_s2 = len_s1;
 
 	/* handling NULL being passed as param */
