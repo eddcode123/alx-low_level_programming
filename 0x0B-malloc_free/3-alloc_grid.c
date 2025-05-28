@@ -18,7 +18,7 @@ int **alloc_grid(int width, int height)
 	}
 
 	/* allocate memory */
-	array = (int *) malloc(height * sizeof(int *));
+	array = malloc(height * sizeof(int *));
 
 	/* check for malloc failure */
 	if (!array)
