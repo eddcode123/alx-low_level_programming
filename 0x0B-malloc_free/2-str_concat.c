@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+
 
 /**
  * str_concat - concatinates two strings
@@ -24,8 +24,14 @@ char *str_concat(char *s1, char *s2)
 		s2 = "";
 	}
 	/* compute len of both strings */
-	len_s1 = strlen(s1);
-	len_s2 = strlen(s2);
+	for (i = 0; s1[i] != '\0'; i++)
+	{
+		len_s1++;
+	}
+	for (j = 0; s2[j] != '\0'; j++)
+	{
+		len_s2++;
+	}
 
 	/* dynamically allocate memory to store string */
 	str = (char *) malloc((len_s1 + len_s2 + 1) * sizeof(char));
