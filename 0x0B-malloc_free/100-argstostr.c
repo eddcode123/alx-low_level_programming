@@ -22,7 +22,7 @@ char *argstostr(int ac, char **av)
 	}
 
 	/* calculate the total len */
-	for (i = 1; i < ac; i++)
+	for (i = 0; i < ac; i++)
 	{
 		for (j = 0; av[i][j] != '\0'; j++)
 		{
@@ -30,14 +30,15 @@ char *argstostr(int ac, char **av)
 		}
 	}
 	/* allocate memory for new string */
-	str = malloc((len + ac) * sizeof(char));
+	str = malloc((len + ac + 1) * sizeof(char));
 
 	if (!str)
 	{
+		free(str);
 		return (NULL);
 	}
 	/* concatenate all the arguments passed */
-	for (i = 1; i < ac; i++)
+	for (i = 0; i < ac; i++)
 	{
 		for (j = 0; av[i][j] != '\0'; j++, k++)
 		{
