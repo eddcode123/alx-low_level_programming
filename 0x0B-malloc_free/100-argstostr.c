@@ -34,7 +34,6 @@ char *argstostr(int ac, char **av)
 
 	if (!str)
 	{
-		free(str);
 		return (NULL);
 	}
 	/* concatenate all the arguments passed */
