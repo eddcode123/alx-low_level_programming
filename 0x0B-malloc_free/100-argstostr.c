@@ -1,54 +1,53 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
 
 /**
- * argstostr - concatenates all the arguments of your program.
+ * argstostr - Function that creates a string from
+ * all the arguments passed
  * @ac: argument count
- * @av: array of strings
- *
- * Return: pointer to a new string, or NULL if it fails
- */
-
+ * @av: argument vector
+ * Return: pointer to string or NULL
+*/
 char *argstostr(int ac, char **av)
 {
-	char *aout;
-	int c, i, j, ia;
+	int i, j, k, len;
+	char *str;
 
-	if (ac == 0)
-		return (NULL);
+	len = 0;
+	k = 0;
 
-	for (c = i = 0; i < ac; i++)
+	if (ac == 0 || av == NULL)
 	{
-		if (av[i] == NULL)
-			return (NULL);
+		return (NULL);
+	}
 
+	/* calculate the total len */
+	for (i = 1; i < ac; i++)
+	{
 		for (j = 0; av[i][j] != '\0'; j++)
-			c++;
-		c++;
+		{
+			len++;
+		}
 	}
+	/* allocate memory for new string */
+	str = malloc((len + ac) * sizeof(char));
 
-	aout = malloc((c + 1) * sizeof(char));
-
-	if (aout == NULL)
+	if (!str)
 	{
-		free(aout);
 		return (NULL);
 	}
-
-	for (i = j = ia = 0; ia < c; j++, ia++)
+	/* concatenate all the arguments passed */
+	for (i = 1; i < ac; i++)
 	{
-		if (av[i][j] == '\0')
+		for (j = 0; av[i][j] != '\0'; j++, k++)
 		{
-			aout[ia] = '\n';
-			i++;
-			ia++;
-			j = 0;
+			str[k] = av[i][j];
 		}
-		if (ia < c - 1)
-			aout[ia] = av[i][j];
+		/* add a new line at the end of each argument */
+		str[k++] = '\n';
 	}
-	aout[ia] = '\0';
+	/* add null terminator */
+	str[k] = '\0';
 
-	return (aout);
+	return (str);
 }
