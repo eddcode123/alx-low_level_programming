@@ -10,7 +10,7 @@
 */void free_grid(int **grid, int height);
 void free_grid(int **grid, int height)
 {
-	unsigned int i, j;
+	int i, j;
 
 	size_t width = sizeof(grid) / grid[0][0];
 
