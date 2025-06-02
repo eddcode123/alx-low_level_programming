@@ -2,24 +2,17 @@
 #include <stdlib.h>
 
 /**
- * free_grid - function that frees memory allocated to a
- * 2d array
- * @grid: pointer to the 2d array
- * @height: size of row
- * Return: Nothing
-*/void free_grid(int **grid, int height);
+ * free_grid - Frees memory allocated to a 2D array.
+ * @grid: Pointer to the 2D array.
+ * @height: Number of rows in the array.
+*/
 void free_grid(int **grid, int height)
 {
-	size_t i, j;
+	int i;
 
-	size_t width = sizeof(grid) / grid[0][0];
-
-	for (i = 0; i < width; i++)
+	for (i = 0; i < height; i++)
 	{
-		for (j = 0; j < height; j++)
-		{
-			free(grid[i][j]);
-		}
+		free(grid[i]);
 	}
 
 	free(grid);
