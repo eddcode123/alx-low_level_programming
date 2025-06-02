@@ -5,7 +5,7 @@
  * alloc_grid - creates a pointer to a 2d array
  * @height: height of grid
  * @width: width of grid
- * Return: pointer to array of NULL
+ * Return: pointer to array or NULL
 */
 int **alloc_grid(int width, int height)
 {
@@ -33,6 +33,7 @@ int **alloc_grid(int width, int height)
 		{
 			for (i--; i >= 0; i--)
 			{
+				printf("%d", i);
 				free(array[i]);
 			}
 			free(array);
