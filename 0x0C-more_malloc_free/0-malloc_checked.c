@@ -9,12 +9,12 @@
 */
 void *malloc_checked(unsigned int b)
 {
-	unsigned int size = malloc(b * sizeof(unsigned int));
+	void *buffer = malloc(b);
 
-	if (!size)
+	if (buffer == NULL)
 	{
 		exit(98);
 	}
 
-	return (size);
+	return (buffer);
 }
