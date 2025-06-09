@@ -4,8 +4,8 @@
 
 /**
  * array_range - Function that creates an array of integers
- * @min: starting value of elements
- * @max: the last element
+ * @min: starting value of array
+ * @max: the last value in array
  * Return: pointer to created array or NULL
 */
 int *array_range(int min, int max)
@@ -17,15 +17,7 @@ int *array_range(int min, int max)
 		return (NULL);
 	}
 
-	if (min == 0)
-	{
-		size = max + 1;
-	}
-	else
-	{
-		size = max;
-	}
-
+	size = max - min + 1;
 	array = (int *) malloc(size * sizeof(int));
 
 	if (!array)
