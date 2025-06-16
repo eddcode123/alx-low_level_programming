@@ -1,25 +1,33 @@
-#include "function_pointers.h"
 #include <stdio.h>
+#include "function_pointers.h"
 
 /**
- * int_index - searches for an integer
- * @array: array name.
+ * int_index - Function that returns the index of the
+ * matched element
+ * @array: pointer to array
  * @size: size of array
- * @cmp: function pointer
+ * @cmp: pointer function that checks for a macth
  *
- * Return: index of the first element
- */
+ * Return: -1 if it fails, index of elemet on success
+ * or 0 when no matches is found
+*/
 int int_index(int *array, int size, int (*cmp)(int))
 {
-	/* integer to loop through array */
 	int i;
-	/* check if size is zero or less */
-	if (size <= 0 || array == NULL || cmp == NULL)
+
+	if (size <= 0)
 		return (-1);
-	/* iterate through array */
-	for (i = 0; i < size; i++)
-		/* check if values are equal */
-		if (cmp(*(array + i)))
-			return (i); /* if true return the ith index */
-	return (-1); /* return -1 if false */
+
+	if (array && cmp)
+	{
+		for (i = 0; i < size; i++)
+		{
+			if (cmp(array[i]) > 0)
+			{
+				return (i);
+			}
+		}
+	}
+
+	return (-1);
 }
