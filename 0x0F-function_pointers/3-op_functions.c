@@ -1,55 +1,51 @@
-#include "3-calc.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * op_add - finds sum of two numbers.
- * @a: 1st num
- * @b: 2nd num
+ * op_add - Function that computes sum of a + b
+ * @a: first parameter
+ * @b: second parameter
  *
- * Return: sum of a + b
- */
-
+ * Return: sum
+*/
 int op_add(int a, int b)
 {
 	return (a + b);
 }
 
 /**
- * op_sub - subtracts two number
- * @a: 1st num
- * @b: 2nd num
+ * op_sub - Computes difference between two numbers
+ * @a: first parameter
+ * @b: second parameter
  *
- * Return: result of a -b
- */
-
+ * Return: difference
+*/
 int op_sub(int a, int b)
 {
 	return (a - b);
 }
 
 /**
- * op_mul - finds multiplication of two numbers
- * @a: 1st num
- * @b: 2nd num
+ * op_mul - mutiplies two integers
+ * @a: first parameter
+ * @b: second parameter
  *
- * Return: result of a * b
- */
-
+ * Return: a * b
+*/
 int op_mul(int a, int b)
 {
 	return (a * b);
 }
 
 /**
- * op_div - divides two numbers
- * @a: 1st num
- * @b: 2nd num
- *
- * Return: result of a / b
- */
-
+ * op_div - divides two integers
+ * @a: first parameter
+ * @b: second parameter
+ * Return: a / b
+*/
 int op_div(int a, int b)
 {
-	if  (b == 0)
+	if (b == 0)
 	{
 		printf("Error\n");
 		exit(100);
@@ -58,12 +54,12 @@ int op_div(int a, int b)
 }
 
 /**
- * op_mod - find reminder of two num divided
- * @a: 1st num
- * @b: 2nd num
+ * op_mod - computes the reminder of two integers divided
+ * @a: first parameter
+ * @b: second parameter
  *
- * Return: remainder a / b
- */
+ * Return: reminder
+*/
 
 int op_mod(int a, int b)
 {
